@@ -43,8 +43,7 @@ public class GameScreen extends Rectangle {
     private float externalBorderUp;
     private float externalBorderDown;
 
-    private float offsetX;
-    private float offsetY;
+    private float offset;
     private float glideOffset = 0.0f;
 
     private void initBorders() {
@@ -58,8 +57,7 @@ public class GameScreen extends Rectangle {
         externalBorderUp = height * externalBorderFactor;
         externalBorderDown = height * (1 - externalBorderFactor);
 
-        offsetX = 50;
-        offsetY = 50;
+        offset = 20;
     }
 
     /**
@@ -108,16 +106,16 @@ public class GameScreen extends Rectangle {
     }
 
     private void checkBorders() {
-        if (xPos < -offsetX) {
-            xPos = -offsetX;
-        } else if (xPos > level.background.getWidth() - width + offsetX) {
-            xPos = (level.background.getWidth() - width + offsetX);
+        if (xPos < -offset) {
+            xPos = -offset;
+        } else if (xPos > level.background.getWidth() - width + offset) {
+            xPos = (level.background.getWidth() - width + offset);
         }
 
-        if (yPos < -offsetY) {
-            yPos = -offsetY;
-        } else if (yPos > level.background.getHeight() - height + offsetY) {
-            yPos = (level.background.getHeight() - height + offsetY);
+        if (yPos < -offset) {
+            yPos = -offset;
+        } else if (yPos > level.background.getHeight() - height + offset) {
+            yPos = (level.background.getHeight() - height + offset);
         }
     }
 
@@ -134,6 +132,7 @@ public class GameScreen extends Rectangle {
 
         // экстендил Rectangle только ради этой строчки :(
         g2.setClip(this);
+
         g2.drawImage(level.background,
                 (int) (-xPos + x),
                 (int) (-yPos + y),

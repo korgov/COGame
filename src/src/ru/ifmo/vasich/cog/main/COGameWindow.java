@@ -5,7 +5,7 @@ import src.ru.ifmo.vasich.ge.window.ScreenMode;
 
 public class COGameWindow extends GameWindow {
     public COGameWindow(int width, int height) {
-        super("Camera obscura", width, height, ScreenMode.WINDOWED);
+        super("Camera obscura", width, height, ScreenMode.FULLSCREEN);
         setContent(new COStateManager());
         setVisible(true);
     }

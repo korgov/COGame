@@ -13,6 +13,8 @@ import java.util.ArrayList;
 public abstract class Level extends GameState {
 
     protected ArrayList<MovableObject> players;
+    protected ArrayList<MovableObject> stuff;
+
     protected ArrayList<GameScreen> screens;
 
     protected BufferedImage background;
