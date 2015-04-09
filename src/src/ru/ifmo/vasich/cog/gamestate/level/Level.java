@@ -1,8 +1,7 @@
 package src.ru.ifmo.vasich.cog.gamestate.level;
 
-import src.ru.ifmo.vasich.cog.entity.Player;
+import src.ru.ifmo.vasich.cog.entity.MovableObject;
 import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveCommand;
-import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveInputHandler;
 import src.ru.ifmo.vasich.ge.state.GameState;
 import src.ru.ifmo.vasich.ge.state.GameStateManager;
 
@@ -13,17 +12,15 @@ import java.util.ArrayList;
 
 public abstract class Level extends GameState {
 
-    protected ArrayList<Player> players;
+    protected ArrayList<MovableObject> players;
     protected ArrayList<GameScreen> screens;
-    protected ArrayList<MoveInputHandler> inputHandlers;
 
     protected BufferedImage background;
 
     public Level(GameStateManager gsm) {
         super(gsm);
-        players = new ArrayList<Player>();
+        players = new ArrayList<MovableObject>();
         screens = new ArrayList<GameScreen>();
-        inputHandlers = new ArrayList<MoveInputHandler>();
         setBackground();
         initScreens();
     }
@@ -57,20 +54,21 @@ public abstract class Level extends GameState {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
             setNextState("Menu");
         }
-        for (GameScreen screen : screens) {
-            MoveCommand c = screen.getInputHandler().handleInput(e.getKeyCode() + " pressed");
+
+        for (MovableObject player : players) {
+            MoveCommand c = player.getMoveInputHandler().handleInput(e.getKeyCode() + " pressed");
             if (c != null) {
-                c.move(screen.getPlayer());
+                c.move(player);
             }
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        for (GameScreen screen : screens) {
-            MoveCommand c = screen.getInputHandler().handleInput(e.getKeyCode() + " released");
+        for (MovableObject player : players) {
+            MoveCommand c = player.getMoveInputHandler().handleInput(e.getKeyCode() + " released");
             if (c != null) {
-                c.move(screen.getPlayer());
+                c.move(player);
             }
         }
     }

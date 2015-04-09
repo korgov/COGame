@@ -28,16 +28,14 @@ public class LevelForOnePlayer extends Level {
 
     @Override
     void initScreens() {
-        players.add(new Player(50, 50, Color.orange, Color.red));
-        inputHandlers.add(new MoveInputHandler().defaultHandler());
-        screens.add(
-                new GameScreen(
-                        0, 0,
-                        Config.getWidth(), Config.getHeight(),
-                        0, 0,
-                        players.get(0), inputHandlers.get(0),
-                        this
-                )
-        );
+
+        GameScreenPlacer gsp = new GameScreenPlacer(1, 1, 10, this);
+        gsp.setPosition(0, 0);
+
+        Player p = new Player(50, 50, Color.orange, Color.red);
+        p.setMoveInputHandler(new MoveInputHandler().defaultHandler());
+
+        players.add(p);
+        screens.add(new GameScreen(p, gsp));
     }
 }

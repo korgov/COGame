@@ -1,5 +1,7 @@
 package src.ru.ifmo.vasich.cog.entity;
 
+import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveCommand;
+import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveInputHandler;
 import src.ru.ifmo.vasich.ge.window.Config;
 
 public abstract class MovableObject extends Entity {
@@ -18,6 +20,7 @@ public abstract class MovableObject extends Entity {
     protected float decelerationTime;
 
     protected float maxV;
+    protected MoveInputHandler moveInputHandler;
 
     public MovableObject(int xPos, int yPos) {
         super(xPos, yPos);
@@ -187,6 +190,16 @@ public abstract class MovableObject extends Entity {
     public boolean isRight() {
         return right;
     }
+
+    public MovableObject setMoveInputHandler(MoveInputHandler handler) {
+        moveInputHandler = handler;
+        return this;
+    }
+
+    public MoveInputHandler getMoveInputHandler() {
+        return moveInputHandler;
+    }
+
 }
 
 

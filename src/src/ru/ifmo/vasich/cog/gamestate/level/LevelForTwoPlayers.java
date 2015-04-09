@@ -4,7 +4,6 @@ import src.ru.ifmo.vasich.cog.entity.Player;
 
 import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveInputHandler;
 import src.ru.ifmo.vasich.ge.state.GameStateManager;
-import src.ru.ifmo.vasich.ge.window.Config;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -29,29 +28,18 @@ public class LevelForTwoPlayers extends Level {
 
     @Override
     void initScreens() {
-        int offset = 5;
-        players.add(new Player(50, 50, Color.green, Color.pink));
-        inputHandlers.add(new MoveInputHandler().firstPlayerHandler());
-        screens.add(
-                new GameScreen(
-                        0, 0,
-                        Config.getWidth() / 2 - offset, Config.getHeight(),
-                        0, 0,
-                        players.get(0), inputHandlers.get(0),
-                        this
-                )
-        );
+        GameScreenPlacer gsp = new GameScreenPlacer(1, 2, 10, this);
 
-        players.add(new Player(50 + Config.getWidth() / 2, 250, Color.pink, Color.green));
-        inputHandlers.add(new MoveInputHandler().secondPlayerHandler());
-        screens.add(
-                new GameScreen(
-                        offset + Config.getWidth() / 2, 0,
-                        Config.getWidth() / 2 - offset, Config.getHeight(),
-                        Config.getWidth() / 2, 0,
-                        players.get(1), inputHandlers.get(1),
-                        this
-                )
-        );
+        Player p = new Player(50, 50, Color.green, Color.pink);
+        p.setMoveInputHandler(new MoveInputHandler().firstPlayerHandler());
+        players.add(p);
+        gsp.setPosition(0, 0);
+        screens.add(new GameScreen(p, gsp));
+
+        p = new Player(500, 124, Color.pink, Color.green);
+        p.setMoveInputHandler(new MoveInputHandler().secondPlayerHandler());
+        players.add(p);
+        gsp.setPosition(0, 1);
+        screens.add(new GameScreen(p, gsp));
     }
 }

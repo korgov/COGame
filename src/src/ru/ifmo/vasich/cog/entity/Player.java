@@ -1,5 +1,7 @@
 package src.ru.ifmo.vasich.cog.entity;
 
+import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveCommand;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
