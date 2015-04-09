@@ -1,11 +1,11 @@
-package src.ru.ifmo.vasich.cog.gamestate.menu;
+package src.ru.ifmo.vasich.ge.gamestate.menu;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public abstract class MenuOption {
 
-    protected Menu holder;
+    protected src.ru.ifmo.vasich.ge.gamestate.menu.Menu holder;
     protected String option;
 
     protected Color passiveColor;
@@ -14,9 +14,9 @@ public abstract class MenuOption {
     protected Color activeColor;
     protected Font activeFont;
 
-    boolean isActive;
+    protected boolean isActive;
 
-    public MenuOption(String option, Menu holder) {
+    public MenuOption(String option, src.ru.ifmo.vasich.ge.gamestate.menu.Menu holder) {
         this.option = option;
         this.holder = holder;
 
@@ -26,7 +26,7 @@ public abstract class MenuOption {
         }
     }
 
-    void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
         int i = holder.options.indexOf(this);
         switch (e.getKeyCode()) {
             case KeyEvent.VK_UP:
@@ -46,7 +46,7 @@ public abstract class MenuOption {
         }
     }
 
-    abstract void keyReleased(KeyEvent e);
+    public abstract void keyReleased(KeyEvent e);
 
     public void render(Graphics2D g2, int x, int y) {
         g2.setColor(isActive ? activeColor : passiveColor);

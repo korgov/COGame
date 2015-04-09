@@ -1,4 +1,4 @@
-package src.ru.ifmo.vasich.cog.gamestate.level;
+package src.ru.ifmo.vasich.ge.gamestate.level;
 
 import src.ru.ifmo.vasich.ge.window.Config;
 
@@ -22,14 +22,14 @@ public class GameScreenPlacer {
         row = 0;
         column = 0;
         setDefaultWidth();
-        setDefaultHieght();
+        setDefaultHeight();
     }
 
     public void setDefaultWidth() {
         width = (Config.getWidth() - offset * (gridColumns + 1)) / gridColumns;
     }
 
-    public void setDefaultHieght() {
+    public void setDefaultHeight() {
         height = (Config.getHeight() - offset * (gridRows + 1)) / gridRows;
     }
 

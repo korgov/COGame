@@ -1,5 +1,7 @@
 package src.ru.ifmo.vasich.cog.gamestate.menu;
 
+import src.ru.ifmo.vasich.ge.gamestate.menu.MenuOption;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -15,7 +17,7 @@ class OptionStart extends MenuOption {
     }
 
     @Override
-    void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
         super.keyPressed(e);
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             holder.setNextState("Level 1");
@@ -24,7 +26,7 @@ class OptionStart extends MenuOption {
     }
 
     @Override
-    void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e) {
 
     }
 

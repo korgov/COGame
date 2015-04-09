@@ -1,9 +1,9 @@
-package src.ru.ifmo.vasich.cog.gamestate.level;
+package src.ru.ifmo.vasich.ge.gamestate.level;
 
-import src.ru.ifmo.vasich.cog.entity.MovableObject;
-import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveCommand;
-import src.ru.ifmo.vasich.ge.state.GameState;
-import src.ru.ifmo.vasich.ge.state.GameStateManager;
+import src.ru.ifmo.vasich.ge.Entity.MovableObject;
+import src.ru.ifmo.vasich.ge.inputhandling.moving.MoveCommand;
+import src.ru.ifmo.vasich.ge.gamestate.GameState;
+import src.ru.ifmo.vasich.ge.gamestate.GameStateManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -25,9 +25,9 @@ public abstract class Level extends GameState {
         initScreens();
     }
 
-    abstract void setBackground();
+    protected abstract void setBackground();
 
-    abstract void initScreens();
+    protected abstract void initScreens();
 
     @Override
     public void tick() {

@@ -1,4 +1,4 @@
-package src.ru.ifmo.vasich.cog.inputhandling.moving;
+package src.ru.ifmo.vasich.ge.inputhandling.moving;
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;

@@ -2,8 +2,11 @@ package src.ru.ifmo.vasich.cog.gamestate.level;
 
 import src.ru.ifmo.vasich.cog.entity.Player;
 
-import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveInputHandler;
-import src.ru.ifmo.vasich.ge.state.GameStateManager;
+import src.ru.ifmo.vasich.ge.inputhandling.moving.MoveInputHandler;
+import src.ru.ifmo.vasich.ge.gamestate.GameStateManager;
+import src.ru.ifmo.vasich.ge.gamestate.level.GameScreen;
+import src.ru.ifmo.vasich.ge.gamestate.level.GameScreenPlacer;
+import src.ru.ifmo.vasich.ge.gamestate.level.Level;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,7 +17,7 @@ public class LevelForTwoPlayers extends Level {
     }
 
     @Override
-    void setBackground() {
+    protected void setBackground() {
         background = new BufferedImage(5000, 5000, BufferedImage.TYPE_INT_RGB);
         Graphics2D graphics2D = (Graphics2D) background.getGraphics();
         graphics2D.setColor(Color.DARK_GRAY);
@@ -27,7 +30,7 @@ public class LevelForTwoPlayers extends Level {
     }
 
     @Override
-    void initScreens() {
+    protected void initScreens() {
         GameScreenPlacer gsp = new GameScreenPlacer(1, 2, 10, this);
 
         Player p = new Player(50, 50, Color.green, Color.pink);

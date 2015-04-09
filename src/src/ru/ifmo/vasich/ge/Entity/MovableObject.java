@@ -1,7 +1,6 @@
-package src.ru.ifmo.vasich.cog.entity;
+package src.ru.ifmo.vasich.ge.Entity;
 
-import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveCommand;
-import src.ru.ifmo.vasich.cog.inputhandling.moving.MoveInputHandler;
+import src.ru.ifmo.vasich.ge.inputhandling.moving.MoveInputHandler;
 import src.ru.ifmo.vasich.ge.window.Config;
 
 public abstract class MovableObject extends Entity {
@@ -199,8 +198,4 @@ public abstract class MovableObject extends Entity {
     public MoveInputHandler getMoveInputHandler() {
         return moveInputHandler;
     }
-
 }
-
-
-

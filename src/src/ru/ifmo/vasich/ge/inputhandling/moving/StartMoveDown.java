@@ -1,6 +1,6 @@
-package src.ru.ifmo.vasich.cog.inputhandling.moving;
+package src.ru.ifmo.vasich.ge.inputhandling.moving;
 
-import src.ru.ifmo.vasich.cog.entity.MovableObject;
+import src.ru.ifmo.vasich.ge.Entity.MovableObject;
 
 public class StartMoveDown extends MoveCommand {
     @Override

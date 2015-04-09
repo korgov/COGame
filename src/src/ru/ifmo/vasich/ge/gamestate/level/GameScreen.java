@@ -1,7 +1,6 @@
-package src.ru.ifmo.vasich.cog.gamestate.level;
+package src.ru.ifmo.vasich.ge.gamestate.level;
 
-import src.ru.ifmo.vasich.cog.entity.Entity;
-import src.ru.ifmo.vasich.cog.entity.MovableObject;
+import src.ru.ifmo.vasich.ge.Entity.MovableObject;
 import src.ru.ifmo.vasich.ge.window.Config;
 
 import java.awt.*;
@@ -146,11 +145,6 @@ public class GameScreen extends Rectangle {
                     (int) (p.getYPos() - yPos + y),
                     null
             );
-        }
-
-        if (Entity.areCollided(level.players.get(0), level.players.get(1))) {
-            g2.setColor(Color.white);
-            g2.drawString("BUMP!", x + 10, y + 50);
         }
     }
 

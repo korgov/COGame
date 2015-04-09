@@ -1,12 +1,12 @@
 package src.ru.ifmo.vasich.ge.window;
 
-import src.ru.ifmo.vasich.ge.state.GameStateManager;
+import src.ru.ifmo.vasich.ge.gamestate.GameStateManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class GameLoop extends JPanel implements Runnable {
+public class GameLoop extends JPanel implements Runnable {
 
     private Thread thread;
     private boolean running;

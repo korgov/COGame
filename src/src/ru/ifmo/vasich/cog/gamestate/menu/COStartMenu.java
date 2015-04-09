@@ -1,11 +1,11 @@
 package src.ru.ifmo.vasich.cog.gamestate.menu;
 
-import src.ru.ifmo.vasich.ge.state.GameStateManager;
+import src.ru.ifmo.vasich.ge.gamestate.GameStateManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class COStartMenu extends Menu {
+public class COStartMenu extends src.ru.ifmo.vasich.ge.gamestate.menu.Menu {
     private String title;
     private Font titleFont;
     private Color titleColor;

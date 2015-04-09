@@ -1,6 +1,5 @@
 package src.ru.ifmo.vasich.cog.main;
 
-import src.ru.ifmo.vasich.cog.gameloop.COGameWindow;
 import src.ru.ifmo.vasich.ge.window.GameWindow;
 
 import javax.swing.*;

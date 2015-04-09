@@ -1,7 +1,7 @@
-package src.ru.ifmo.vasich.cog.gamestate.menu;
+package src.ru.ifmo.vasich.ge.gamestate.menu;
 
-import src.ru.ifmo.vasich.ge.state.GameState;
-import src.ru.ifmo.vasich.ge.state.GameStateManager;
+import src.ru.ifmo.vasich.ge.gamestate.GameState;
+import src.ru.ifmo.vasich.ge.gamestate.GameStateManager;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

@@ -1,4 +1,4 @@
-package src.ru.ifmo.vasich.ge.state;
+package src.ru.ifmo.vasich.ge.gamestate;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

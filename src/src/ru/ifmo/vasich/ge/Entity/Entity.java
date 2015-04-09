@@ -1,4 +1,4 @@
-package src.ru.ifmo.vasich.cog.entity;
+package src.ru.ifmo.vasich.ge.Entity;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
