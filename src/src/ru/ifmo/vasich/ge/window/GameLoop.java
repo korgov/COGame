@@ -5,6 +5,9 @@ import src.ru.ifmo.vasich.ge.gamestate.GameStateManager;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class GameLoop extends JPanel implements Runnable {
 
@@ -68,32 +71,30 @@ public class GameLoop extends JPanel implements Runnable {
 
         init();
 
-        long tickTimer = 0;
-        double timePerTick = NSPS / TPS;
+        final ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
-        long frameTimer = 0;
-        double timePerFrame = NSPS / FPS;
+        final double framesPerSecond = 30;
+        final long ticksPerFrame = 6;
 
-        long previous = System.nanoTime();
+        final long period = Double.valueOf(1000 / framesPerSecond).longValue();
 
-        while (running) {
-            long current = System.nanoTime();
-            long elapsed = current - previous;
-            previous = current;
-
-            tickTimer += elapsed;
-            frameTimer += elapsed;
-
-            while (tickTimer > timePerTick) {
-                tick();
-                tickTimer -= timePerTick;
+        scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                if(running) {
+                    for (int i = 0; i < ticksPerFrame; i++) {
+                        tick();
+                    }
+                    render();
+                } else {
+                    try {
+                        scheduledExecutorService.awaitTermination(0, TimeUnit.SECONDS);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-
-            //if (frameTimer > timePerFrame) {
-            render();
-            frameTimer %= timePerFrame;
-            // }
-        }
+        }, 0, period, TimeUnit.MILLISECONDS);
     }
 
     // update game logic
